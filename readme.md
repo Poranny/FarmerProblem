@@ -11,6 +11,7 @@ Format komendy:
 gdzie
 
 **POSTAĆ** należy do zbioru {farmer, koza, wilk, kapusta}
+
 **Z** oraz **DO** wynoszą odpowiednio l p (z lewego brzegu na prawy) lub p l (z prawego brzegu na lewy)
 
 czyli np.
