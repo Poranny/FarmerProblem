@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Farmera, Wilka, Kozy i Kapusty</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<img id="farmer" src="Images/farmer.png" alt="Farmer" class="animatable">
+<img id="goat" src="Images/goat.png" alt="Goat" class="animatable">
+<img id="wolf" src="Images/wolf.png" alt="Wolf" class="animatable">
+<img id="cabbage" src="Images/cabbage.png" alt="Cabbage" class="animatable">
+
+<img id="river" src="Images/river.png" alt="River">
+
+<div id="farmerPositionText">Pozycja Farmera: Lewo</div>
+<div id="goatPositionText">Pozycja Kozy: Lewo</div>
+<div id="wolfPositionText">Pozycja Wilka: Lewo</div>
+<div id="cabbagePositionText">Pozycja Kapusty: Lewo</div>
+
+<div id="errorLog"></div>
+<div id="instructions"></div>
+
+<script type="module" src="Scripts/Front/RiverCrossingOutput.mjs"></script>
+<script type="module" src="Scripts/Front/RiverCrossingInput.mjs"></script>
+<script type="module" src="Scripts/Logic/RiverCrossingCalculations.mjs"></script>
+
+<div id="textAreaContainer">
+    <textarea id="textArea" placeholder="Tutaj wpisz komendy"></textarea>
+    <button id="submitButton">Uruchom</button>
+    <button id="resetButton">Resetuj</button>
+    <div id="speedContainer">
+        <label id="speedInputLabel" for="speedInput">Czas trwania ruchu animacji [ms]</label>
+        <input id="speedInput" >
+    </div>
+</div>
+
+<div id="winText"></div>
+
+</body>
+</html>

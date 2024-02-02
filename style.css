@@ -1,0 +1,155 @@
+
+.animatable {
+    transition: left 1s;
+}
+
+#farmer {
+    filter: drop-shadow(0px 0px 3px #222222);
+    position: absolute;
+}
+#goat {
+    filter: drop-shadow(0px 0px 3px #222222);
+    position: absolute;
+}
+#wolf {
+    filter: drop-shadow(0px 0px 3px #222222);
+    position: absolute;
+}
+#cabbage {
+    filter: drop-shadow(0px 0px 3px #222222);
+    position: absolute;
+}
+#river {
+    filter: drop-shadow(0px 0px 6px #000000);
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    z-index: -1;
+    height: 50vh;
+}
+#textAreaContainer {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25%;
+}
+
+#textArea {
+    filter: drop-shadow(0px 0px 3px #777777);
+    width: 100%;
+    height: 350px;
+}
+
+#submitButton, #resetButton {
+    filter: drop-shadow(0px 0px 3px #777777);
+    position: absolute;
+    top: -50px;
+    padding: 10px 10px;
+    font-size: 21px;
+}
+
+#submitButton {
+    left: 15%;
+}
+
+#resetButton {
+    right: 15%;
+}
+
+
+#instructions {
+    filter: drop-shadow(0px 0px 6px #777777);
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    margin: 0;
+    font-size: 14px;
+    background-color: lightgray;
+    max-width: 400px;
+}
+
+#errorLog {
+    color: red;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    margin: 0;
+    font-weight: bold
+}
+
+#farmerPositionText {
+     position: fixed;
+     bottom: 105px;
+     left: 0;
+     background-color: lightgray;
+     padding: 10px;
+     margin: 0;
+ }
+
+#goatPositionText {
+    position: fixed;
+    bottom: 70px;
+    left: 0;
+    background-color: lightgray;
+    padding: 10px;
+    margin: 0;
+}
+
+#wolfPositionText {
+    position: fixed;
+    bottom: 35px;
+    left: 0;
+    background-color: lightgray;
+    padding: 10px;
+    margin: 0;
+}
+
+#cabbagePositionText {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: lightgray;
+    padding: 10px;
+    margin: 0;
+}
+
+#winText {
+    filter: drop-shadow(0px 0px 3px #333333);
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    padding: 10px;
+    margin: 0;
+    font-size: 70px;
+    color: green;
+}
+
+#speedContainer {
+    position: fixed;
+    margin: 10px;
+    right: -200px;
+    top: 25%;
+    transform: translateX(-50%);
+
+    filter: drop-shadow(0px 0px 3px #777777);
+}
+
+#speedInputLabel {
+    right: 50%;
+    position: fixed;
+    top: -20px;
+    width: 160px;
+    font-size: 11px;
+}
+
+#speedInput {
+    position: fixed;
+    right: 50%;
+    font-size: 10px;
+    width: 150px; /* Szerokość pola */
+    padding: 5px; /* Wypełnienie wokół tekstu */
+}
