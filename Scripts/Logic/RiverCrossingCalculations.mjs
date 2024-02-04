@@ -13,21 +13,21 @@ function verifyLogic(commandLines, index=0) {
     const commandParts = parseCommandLine(commandLine);
 
     if (!commandParts) {
-        throwErrorAndLog(`Nieprawidłowy format linii: "${commandLine}"`);
+        throwErrorAndLog(`Nieprawidłowy format linii "${commandLine}"`);
     }
 
     const state = getState();
 
     if (!isCorrectSide(state, commandParts.character, commandParts.from)) {
-        throwErrorAndLog(`Nie można ruszyć się na brzeg, na którym już się jest! ${index + 1}: "${commandLine}"`);
+        throwErrorAndLog(`Nie można ruszyć się na brzeg, na którym już się jest!\nLinia ${index + 1}: "${commandLine}"`);
     }
 
     if (!isPassengerAvailable (state, commandParts.character)) {
-        throwErrorAndLog(`Pasażer nie może opuścić brzegu bez pomocy Farmera! ${index + 1}: "${commandLine}"`);
+        throwErrorAndLog(`Pasażer nie może opuścić brzegu bez pomocy Farmera!\nLinia ${index + 1}: "${commandLine}"`);
     }
 
     if (!canBeLeftTogether (state, commandParts.character)) {
-        throwErrorAndLog(`Po tym ruchu nieodpowiedni pasażerowie zostaną razem na brzegu! ${index + 1}: "${commandLine}"`);
+        throwErrorAndLog(`Po tym ruchu nieodpowiedni pasażerowie zostaną razem na brzegu!\nLinia ${index + 1}: "${commandLine}"`);
     }
 
     performMovement(commandParts.character);
@@ -44,7 +44,7 @@ function performMovement(character) {
     switch (character) {
         case "farmer" :
             state.isFarmerOnLeft = !state.isFarmerOnLeft;
-
+            console.log ("perform" + character)
             updateState(state);
 
             break;
@@ -78,10 +78,15 @@ function performMovement(character) {
 // Weryfikacja, czy ruszane postaci znajdują się po odpowiedniej stronie dla danego ruchu
 function isCorrectSide(state, character, from) {
 
-    if ((character === "farmer" && state.isFarmerOnLeft !== (from === "l")) ||
-        (character === "koza" && state.isGoatOnLeft !== (from === "l")) ||
-        (character === "wilk" && state.isWolfOnLeft !== (from === "l")) ||
-        (character === "kapusta" && state.isCabbageOnLeft !== (from === "l"))) {
+    console.log(state)
+    console.log(character)
+    console.log(from)
+    console.log()
+
+    if ((character === "farmer" && state.isFarmerOnLeft !== (from === "west")) ||
+        (character === "koza" && state.isGoatOnLeft !== (from === "west")) ||
+        (character === "wilk" && state.isWolfOnLeft !== (from === "west")) ||
+        (character === "kapusta" && state.isCabbageOnLeft !== (from === "west"))) {
         return false; // Postać nie jest po właściwej stronie, aby wykonać ruch
     }
 
@@ -124,14 +129,14 @@ function canBeLeftTogether(state, character) {
 // Zamiana reprezentacji komendy (z linii tekstu - w bardziej obiektowy)
 function parseCommandLine(commandLine) {
 
-    const commandPattern = /^\((farmer|koza|wilk|kapusta) (l|p) (l|p)\)$/;
+    const commandPattern = /^\((plynie) (farmer|koza|wilk|kapusta) (west|east) (west|east)\)$/;
     const match = commandLine.match(commandPattern);
 
     if (match) {
         return {
-            character: match[1],
-            from: match[2],
-            to: match[3]
+            character: match[2],
+            from: match[3],
+            to: match[4]
         };
     } else {
         return null;

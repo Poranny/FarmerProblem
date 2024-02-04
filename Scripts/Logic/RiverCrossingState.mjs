@@ -52,7 +52,7 @@ function updateState(newState) {
     resetErrorLog();
 }
 
-// Reset symulacji, domyślnie do pozycji L L L L
+// Reset symulacji, domyślnie do pozycji West West West West
 function resetState() {
 
     const resetState = getState();

@@ -22,13 +22,9 @@ const charactersVerticalOffset = 25; // Dodatkowa odległość pionowa między p
 // Funkcje wywołujące odpowiedni zestaw ruchów (eksportowane na zewnątrz)
 function moveFarmer() {
 
-    const state = getState();
+    moveFarmerSingle();
 
-    if (state.isFarmerOnLeft === state.isGoatOnLeft) {
-        moveFarmerSingle();
-
-        updateFarmerPositionText();
-    }
+    updateFarmerPositionText();
 }
 function moveFarmerAndGoat() {
 
@@ -205,25 +201,25 @@ function updateFarmerPositionText() {
 
     const state = getState();
 
-    farmerPositionText.textContent = `Pozycja Farmera: ${state.isFarmerOnLeft ? 'Lewo' : 'Prawo'}`;
+    farmerPositionText.textContent = `Pozycja Farmera: ${state.isFarmerOnLeft ? 'West' : 'East'}`;
 }
 function updateGoatPositionText() {
 
     const state = getState();
 
-    goatPositionText.textContent = `Pozycja Kozy: ${state.isGoatOnLeft ? 'Lewo' : 'Prawo'}`;
+    goatPositionText.textContent = `Pozycja Kozy: ${state.isGoatOnLeft ? 'West' : 'East'}`;
 }
 function updateWolfPositionText() {
 
     const state = getState();
 
-    wolfPositionText.textContent = `Pozycja Wilka: ${state.isWolfOnLeft ? 'Lewo' : 'Prawo'}`;
+    wolfPositionText.textContent = `Pozycja Wilka: ${state.isWolfOnLeft ? 'West' : 'East'}`;
 }
 function updateCabbagePositionText() {
 
     const state = getState();
 
-    cabbagePositionText.textContent = `Pozycja Kapusty: ${state.isCabbageOnLeft ? 'Lewo' : 'Prawo'}`;
+    cabbagePositionText.textContent = `Pozycja Kapusty: ${state.isCabbageOnLeft ? 'West' : 'East'}`;
 }
 
 // Funkcje ustawiające wartości tekstu o wygranej na ekranie

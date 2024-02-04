@@ -26,13 +26,18 @@ document.addEventListener('DOMContentLoaded', function() {
 // Obsługa wyświetlania błędów w konsoli i na ekranie
 const errorLogElement = document.getElementById('errorLog');
 function throwErrorAndLog(message) {
-    errorLogElement.textContent = "Error: " + message; // Aktualizacja treści widocznego na ekranie error logu
+
+    message = message.replace(/\n/g, '<br>');
+
+    errorLogElement.innerHTML  = "Error: " + message; // Aktualizacja treści widocznego na ekranie error logu
+
+    message = message.replace('<br>', /\n/g);
 
     throw new Error(message); // Wyrzucenie błędu na konsolę
 }
 
 function resetErrorLog() {
-    errorLogElement.textContent = "";
+    errorLogElement.innerHTML  = "";
 }
 
 

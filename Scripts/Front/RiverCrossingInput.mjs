@@ -23,15 +23,15 @@ function verifyCommands(commandsText) {
 
     lines.forEach((line, index) => {
         if (!looksLikeCommand(line)) {
-            throwErrorAndLog(`Nieobsługiwana komenda! W linijce ${index + 1}`);
+            throwErrorAndLog(`Nieobsługiwana komenda!\nW linijce ${index + 1}`);
         }
 
         if (!checkArgumentsFormat(line)) {
-            throwErrorAndLog(`Nieobsługiwane argumenty! W linijce ${index + 1}`);
+            throwErrorAndLog(`Nieobsługiwane argumenty!\nW linijce ${index + 1}`);
         }
 
         if (!checkSidesDifferent(line)) {
-            throwErrorAndLog(`Drugi oraz trzeci argument nie mogą być tożsame! W linijce ${index + 1}`);
+            throwErrorAndLog(`Trzeci oraz czwarty argument nie mogą być tożsame!\nW linijce ${index + 1}`);
         }
     });
 
@@ -56,14 +56,14 @@ function looksLikeCommand(text) {
 
 function checkArgumentsFormat(command) {
     // Wyrażenie regularne akceptujące wyłącznie linijki z argumentami *POSTAĆ* *Z* *DO*
-    const regex = /^\((farmer|koza|wilk|kapusta) (l|p) (l|p)\)$/;
+    const regex = /^\((plynie) (farmer|koza|wilk|kapusta) (west|east) (west|east)\)$/;
 
     return regex.test(command);
 }
 
 function checkSidesDifferent(command) {
-    // Funkcja weryfikująca, czy argument drugi *Z* i trzeci *DO* są różne
-    const match = command.match(/^\((farmer|koza|wilk|kapusta) (l|p) (l|p)\)$/);
+    // Funkcja weryfikująca, czy argument *Z* i *DO* są różne
+    const match = command.match(/^\((plynie) (farmer|koza|wilk|kapusta) (west|east) (west|east)\)$/);
     if (match) {
         return match[2] !== match[3];
     }
