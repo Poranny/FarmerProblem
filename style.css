@@ -1,76 +1,153 @@
-
-.animatable {
-    transition: left 1s;
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    box-sizing: border-box;
 }
 
-#farmer {
-    filter: drop-shadow(0px 0px 3px #222222);
-    position: absolute;
+.instructionText {
+    width: calc(50% - 10px);
+    text-align: center;
 }
-#goat {
-    filter: drop-shadow(0px 0px 3px #222222);
-    position: absolute;
-}
-#wolf {
-    filter: drop-shadow(0px 0px 3px #222222);
-    position: absolute;
-}
-#cabbage {
-    filter: drop-shadow(0px 0px 3px #222222);
-    position: absolute;
-}
-#river {
-    filter: drop-shadow(0px 0px 6px #000000);
-    position: absolute;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-    z-index: -1;
-    height: 50vh;
-}
-#textAreaContainer {
+
+#instructions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 15%;
+    box-shadow: 0px 2px 5px rgba(0,0,0,.5);
+    overflow: auto;
+    filter: drop-shadow(0px 0px 6px #777777);
     position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    font-size: 1.45vh;
+    background-color: lightgray;
+}
+
+
+#lowerContainer {
+    position: fixed;
+    top: 15%;
+    left: 0;
+    right: 0;
     bottom: 0;
+    display: flex;
+}
+
+#animationContainer {
+
+    position: relative;
+    width: 50%;
+    height: 85%;
+}
+
+
+#farmer,#goat,#wolf,#cabbage {
+
+    transform: translate(-50%, -50%);
+
+    width: 10vh;
+    height: 10vh;
+    left: 0%;
+    top: 10%;
+    filter: drop-shadow(0px 0px 3px #222222);
+    position: absolute;
+    z-index: 1;
+}
+
+#river {
+    position: absolute;
     left: 50%;
-    transform: translateX(-50%);
-    width: 25%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0px 0px 6px #000000);
+    width: auto;
+    height: auto;
+    max-width: 90%;
+    max-height: 90%;
+    z-index: 0;
+}
+
+
+#controlPanel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+
+
+
+#textAreaContainer {
+
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: 50%;
+    width: 75%;
 }
 
 #textArea {
     filter: drop-shadow(0px 0px 3px #777777);
 
+    font-size: 20px;
+
     width: 100%;
-    height: 350px;
+    height: 100%;
 }
 
 #submitButton, #resetButton {
-    filter: drop-shadow(0px 0px 3px #777777);
     position: absolute;
-    top: -50px;
-    padding: 10px 10px;
-    font-size: 21px;
+    top: 61%;
+    filter: drop-shadow(0px 0px 3px #777777);
+    height: 3.6vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    font-size: 1.6vw;
 }
 
 #submitButton {
-    left: 15%;
+    left:30%;
 }
 
 #resetButton {
-    right: 15%;
+    right: 30%;
 }
 
 
-#instructions {
-    filter: drop-shadow(0px 0px 6px #777777);
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 10px;
-    margin: 0;
+#speedContainer {
+    position: absolute;
+    margin: 10px;
+    left: 50%;
+    top: 85%;
+    transform: translateX(-50%);
+
+    filter: drop-shadow(0px 0px 3px #777777);
+}
+
+#speedInputLabel {
+    transform: translateX(-50%);
+    position: absolute;
+    top: -20px;
+    width: 200px;
     font-size: 14px;
-    background-color: lightgray;
-    max-width: 400px;
 }
+
+#speedInput {
+    position: absolute;
+
+    transform: translateX(-50%);
+    font-size: 14px;
+    width: 75px;
+    padding: 5px;
+}
+
 
 #errorLog {
     color: red;
@@ -84,75 +161,41 @@
     max-width: 500px;
 }
 
+#farmerPositionText, #goatPositionText, #wolfPositionText, #cabbagePositionText {
+    position: fixed;
+    left: 0;
+    padding: 10px;
+    font-size: 14px;
+    margin: 0;
+}
+
 #farmerPositionText {
-     position: fixed;
-     bottom: 105px;
-     left: 0;
-     background-color: lightgray;
-     padding: 10px;
-     margin: 0;
+
+    bottom: 60px;
  }
 
 #goatPositionText {
-    position: fixed;
-    bottom: 70px;
-    left: 0;
-    background-color: lightgray;
-    padding: 10px;
-    margin: 0;
+
+    bottom: 40px;
 }
 
 #wolfPositionText {
-    position: fixed;
-    bottom: 35px;
-    left: 0;
-    background-color: lightgray;
-    padding: 10px;
-    margin: 0;
+
+    bottom: 20px;
 }
 
 #cabbagePositionText {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    background-color: lightgray;
-    padding: 10px;
-    margin: 0;
+
+    bottom: 0px;
 }
 
 #winText {
     filter: drop-shadow(0px 0px 3px #333333);
-    position: fixed;
-    top: 5%;
-    right: 5%;
-    padding: 10px;
+    position: absolute;
+    top: 87%;
+    right: 55%;
     margin: 0;
-    font-size: 70px;
+    font-size: 4vw;
     color: green;
 }
 
-#speedContainer {
-    position: fixed;
-    margin: 10px;
-    right: -200px;
-    top: 25%;
-    transform: translateX(-50%);
-
-    filter: drop-shadow(0px 0px 3px #777777);
-}
-
-#speedInputLabel {
-    right: 50%;
-    position: fixed;
-    top: -20px;
-    width: 160px;
-    font-size: 11px;
-}
-
-#speedInput {
-    position: fixed;
-    right: 50%;
-    font-size: 10px;
-    width: 150px; /* Szerokość pola */
-    padding: 5px; /* Wypełnienie wokół tekstu */
-}

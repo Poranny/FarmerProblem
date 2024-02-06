@@ -1,6 +1,6 @@
 import { verifyLogic } from '../Logic/RiverCrossingCalculations.mjs';
 import { resetState } from '../Logic/RiverCrossingState.mjs';
-import { throwErrorAndLog } from './UserSettings.mjs';
+import {setTime, throwErrorAndLog, getDefaultTime, resetErrorLog} from './UserSettings.mjs';
 // Moduł odpowiedzialny za obsługę (i weryfikację) wprowadzanych przez użytkownika komend i przycisków
 
 const submitButton = document.getElementById('submitButton');
@@ -9,17 +9,22 @@ const resetButton = document.getElementById('resetButton');
 // Główna funkcja weryfikująca poprawność wpisanych komend
 function verifyCommands(commandsText) {
 
+    commandsText = commandsText.toLowerCase();
+
+    let lines = commandsText.split('\n');
+
+    lines = removeEmptyLines(lines);
+
+
     if (commandsText === '') {
-        throwErrorAndLog("Pole tekstowe nie może być puste!");
+    //    throwErrorAndLog("Pole tekstowe nie może być puste!");
+
+        return null;
     }
 
     if (!checkAlphabet(commandsText)) {
         throwErrorAndLog("Nieoczekiwane znaki w polu tekstowym!");
     }
-
-    commandsText = commandsText.toLowerCase();
-
-    const lines = commandsText.split('\n');
 
     lines.forEach((line, index) => {
         if (!looksLikeCommand(line)) {
@@ -39,6 +44,11 @@ function verifyCommands(commandsText) {
     verifyLogic(lines)
 }
 
+// Funkcja usuwa linijki, które są puste, tj. zawierają jedynie znak końca linii
+function removeEmptyLines(lines) {
+
+    return lines.filter(line => line.trim() !== "");
+}
 
 function checkAlphabet(text) {
     // Wyrażenie regularne akceptujące wyłącznie litery, spacje, nawiasy okrągłe i nowe linie
@@ -48,8 +58,8 @@ function checkAlphabet(text) {
 }
 
 function looksLikeCommand(text) {
-    // Wyrażenie regularne akceptujące wyłącznie linijki zawierające się w nawiasach okrągłych
-    const regex = /^\([^)]*\)$/;
+    // Wyrażenie regularne akceptujące wyłącznie linijki zawierające się w nawiasach okrągłych, zaczynające się na plynie
+    const regex = /^\((plynie)[^)]*\)$/;
 
     return regex.test(text);
 }
@@ -69,6 +79,21 @@ function checkSidesDifferent(command) {
     }
     return false;
 }
+
+// Wprowadzanie czasu animacji
+const speedInput = document.getElementById('speedInput');
+speedInput.addEventListener('change', function() {
+    var value = Number(speedInput.value);
+    if (!Number.isInteger(value) || value < 0) {
+        speedInput.value = getDefaultTime();
+        setTime(getDefaultTime());
+        throwErrorAndLog("Proszę wprowadzić dodatnią liczbę całkowitą.");
+    } else {
+        resetErrorLog();
+        setTime(value);
+    }
+});
+
 
 
 // Eventy odpowiedzialne za przyciski Submit i Reset

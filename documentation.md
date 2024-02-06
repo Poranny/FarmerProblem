@@ -10,4 +10,4 @@ Za wygląd oraz zachowanie interfejsu w przeglądarce odpowiadają również w d
 
 Każdy skrypt jest zwięźle okomentowany
 
-Zakres rozdzielczości, dla których zweryfikowałem, że interfejs renderuje się poprawnie, to 1920x1080 - 1280x1024 (dla mniejszych kod również działa bez zarzutu, jedynie ustawienie obiektów HTML zaczyna czasami robić problemy).
+Zakres rozdzielczości, dla których zweryfikowałem, że interfejs renderuje się poprawnie, to 1920x1080 - 640x480 (dla mniejszych kod również działa bez zarzutu, jedynie ustawienie obiektów HTML zaczyna czasami robić problemy).

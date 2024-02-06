@@ -8,12 +8,6 @@
 </head>
 <body>
 
-<img id="farmer" src="Images/farmer.png" alt="Farmer" class="animatable">
-<img id="goat" src="Images/goat.png" alt="Goat" class="animatable">
-<img id="wolf" src="Images/wolf.png" alt="Wolf" class="animatable">
-<img id="cabbage" src="Images/cabbage.png" alt="Cabbage" class="animatable">
-
-<img id="river" src="Images/river.png" alt="River">
 
 <div id="farmerPositionText">Pozycja Farmera: West</div>
 <div id="goatPositionText">Pozycja Kozy: West</div>
@@ -21,21 +15,41 @@
 <div id="cabbagePositionText">Pozycja Kapusty: West</div>
 
 <div id="errorLog"></div>
-<div id="instructions"></div>
+
+<div id="instructions">
+    <div class="instructionText" id="leftInstruction"></div>
+    <div class="instructionText" id="rightInstruction"></div>
+</div>
+
+<div id="lowerContainer">
+    <div id="animationContainer">
+
+        <img id="farmer" src="Images/farmer.png" alt="Farmer" class="animatable">
+        <img id="goat" src="Images/goat.png" alt="Goat" class="animatable">
+        <img id="wolf" src="Images/wolf.png" alt="Wolf" class="animatable">
+        <img id="cabbage" src="Images/cabbage.png" alt="Cabbage" class="animatable">
+
+        <img id="river" src="Images/riverBigger.png" alt="River">
+
+    </div>
+    <div id="controlPanel">
+
+        <div id="textAreaContainer">
+            <textarea id="textArea" spellcheck="false" placeholder="Tutaj wpisz komendy"></textarea>
+            <button id="submitButton">Uruchom</button>
+            <button id="resetButton">Resetuj</button>
+            <div id="speedContainer">
+                <label id="speedInputLabel" for="speedInput">Czas trwania ruchu animacji [ms]</label>
+                <input id="speedInput" >
+            </div>
+        </div>
+    </div>
+</div>
 
 <script type="module" src="Scripts/Front/RiverCrossingOutput.mjs"></script>
 <script type="module" src="Scripts/Front/RiverCrossingInput.mjs"></script>
 <script type="module" src="Scripts/Logic/RiverCrossingCalculations.mjs"></script>
 
-<div id="textAreaContainer">
-    <textarea id="textArea" spellcheck="false" placeholder="Tutaj wpisz komendy"></textarea>
-    <button id="submitButton">Uruchom</button>
-    <button id="resetButton">Resetuj</button>
-    <div id="speedContainer">
-        <label id="speedInputLabel" for="speedInput">Czas trwania ruchu animacji [ms]</label>
-        <input id="speedInput" >
-    </div>
-</div>
 
 <div id="winText"></div>
 

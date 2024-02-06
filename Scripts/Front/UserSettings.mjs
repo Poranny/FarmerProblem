@@ -1,7 +1,8 @@
 // Moduł odpowiedzialny za zarządzanie ustawieniami użytkownika, tj. prędkością animacji, errorlogiem
 
 let settings = {
-    animationTime: 500 // Domyślny czas przejścia ruchu w milisekundach
+    defaultAnimationTime: 500, // Faktyczny czas przejściaruchu w milisekundach
+    animationTime: 500 // Domyślny czas
 };
 
 // Funkcje aktualizujące i pobierające czas
@@ -17,9 +18,17 @@ function setTime(newTime) {
 function getTime() {
     return settings.animationTime;
 }
+function getDefaultTime() {
+    return settings.defaultAnimationTime;
+}
+function setDefaultTime(newDefaultTime) {
+    settings.defaultAnimationTime = newDefaultTime;
+}
 
 document.addEventListener('DOMContentLoaded', function() {
-    setTime(getTime());
+
+    setDefaultTime(500);
+    setTime(getDefaultTime());
 });
 
 
@@ -42,5 +51,4 @@ function resetErrorLog() {
 
 
 
-
-export { setTime, getTime, throwErrorAndLog, resetErrorLog };
+export { setTime, getTime, throwErrorAndLog, resetErrorLog, getDefaultTime, setDefaultTime};
