@@ -1,14 +1,17 @@
-Problem Farmera, Kozy, Wilka i Kapusty
-Celem Użytkownika jest przeprowadzenie wszystkich 4 postaci na prawą stronę rzeki przy użyciu komend PDDL.
-Format komendy: (plynie **POSTAĆ** **Z** **DO**)
-gdzie **POSTAĆ** należy do zbioru {farmer, koza, wilk, kapusta}
-**Z** oraz **DO** wynoszą odpowiednio
-west east (z lewego brzegu na prawy) lub east west (z prawego brzegu na lewy)
-czyli np. (plynie farmer west east) dla ruchu farmerem z lewego brzegu na prawy. Wielkość liter dowolna.
+**Quick academic demo project.**
+
+# Farmer, Goat, Wolf, and Cabbage Problem
+
+The user's goal is to transfer all four characters to the right side of the river using PDDL-style commands.
+
+**Command format:** `(plynie CHARACTER FROM TO)`  
+- **CHARACTER**: one of `{farmer, goat, wolf, cabbage}`  
+- **FROM** and **TO**: either `west east` (left to right) or `east west` (right to left).
+
+Example: `(plynie farmer west east)` moves the farmer from left to right. Case-insensitive.
+
 ___
-Wybór postaci innej niż farmer oznacza również ruch farmerem, jako że nie mogą one podróżować w pojedynkę bez jego obecności.
-Dozwolone jest zarówno wpisywanie i uruchamianie komend jedna po drugiej, jak też zestawienie większej liczby w wielu linijkach.
-Przycisk "Resetuj" doprowadza symulację do stanu początkowego (domyślnie wszystkie postaci na lewym brzegu).
-W przypadku błędu we wprowadzanej komendzie lub wprowadzeniu nieprawidłowego ruchu, w prawym dolnym rogu ekranu pojawia się odpowiedni komunikat. 
-Made by Adam Malinowski, Politechnika Poznańska 2024
-Specjalne podziękowania dla Julii Manikowskiej za oprawę graficzną
+Moving any character other than the farmer implies that the farmer travels as well, since characters cannot move alone. Commands can be entered individually or in multiple lines. Clicking "Reset" restores the initial state (default: all characters on the left). Errors or invalid moves produce messages displayed in the bottom-right corner.
+
+Made by Adam Malinowski, Poznań University of Technology, 2024.  
+Special thanks to Julia Manikowska for graphical design.
