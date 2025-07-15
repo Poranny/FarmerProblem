@@ -2,6 +2,8 @@
 
 # Farmer, Goat, Wolf, and Cabbage Problem
 
+<img src="Images/scene_pic.png" alt="Scene picture" width="400"/>
+
 The user's goal is to transfer all four characters to the right side of the river using PDDL-style commands.
 
 **Command format:** `(plynie CHARACTER FROM TO)`  
